@@ -9,17 +9,17 @@ const heroSubText = document.getElementById('heroSubText');
 // Array of image and text pairs
 const heroData = [
   {
-    image: '/assets/img/contact3.jpg',
+    image: 'assets/img/contact3.jpg',
     heading: 'Contact Us',
     subText: 'We’re always here to listen and to provide 24/7 support',
   },
   {
-    image:  '/assets/img/CONTACT.jpg',
+    image:  'assets/img/CONTACT.jpg',
     heading: 'Let’s Work Together',
     subText: 'Tell us about your project goals',
   },
   {
-    image:   '/assets/img/company.jpg',
+    image:   'assets/img/company.jpg',
     heading: 'Get In Touch Today',
     subText: 'Solutions tailored for your business',
   }
