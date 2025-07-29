@@ -705,8 +705,7 @@ display:none;
     max-width: 100%;
     width: 100%;
     margin: 0;
-    transform: translateX(0) !important;
-    opacity: 1 !important;
+ 
   }
 
   .about-image {
