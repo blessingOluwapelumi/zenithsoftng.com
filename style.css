@@ -41,7 +41,7 @@ footer > div {
 
 /* === TOP BAR === */
 .top-bar {
-  background-color: #4d4453;
+  background-color: var(--primary-color);
   color: var(--main-bg-color);
   padding: 16px 20px;
   font-size: 14px;
