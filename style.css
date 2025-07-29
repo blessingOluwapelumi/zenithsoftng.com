@@ -6,7 +6,7 @@
 
 
 
-:root {
+: root {
  
 
   --primary-color: #393939;
@@ -1205,7 +1205,7 @@ background-color: var(--primary-color);
 
 .business-growth-section {
   position: relative;
-  background-image: url('assets/img/heroImage22.jpg'); 
+  background-image: url('assets/img/heroImage2.png'); 
   background-size: cover;
   background-position: center;
   height: 90vh;
