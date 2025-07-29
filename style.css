@@ -183,7 +183,7 @@ background-color:  #ebebeb;
 
 /* CTA Button */
 .cta-btn {
-  padding: 10px 10px;
+   padding: 14px 32px;
   background-color: var(--btn-color);
   color: white;
   border: 1px solid var(--btn-color);
@@ -252,7 +252,7 @@ background-color:  #ebebeb;
     width: 100%;
   }
 
-  .sub-menu a:hover {
+  .sub-menu a: hover {
     padding-left: 40px;
   }
 
