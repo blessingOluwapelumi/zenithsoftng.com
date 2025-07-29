@@ -187,25 +187,58 @@ window.addEventListener('load', animateOnScroll);
 
 //OUR SERVICES
 
-//track record 
+//track record
 const counters = document.querySelectorAll('.counter');
 
-counters.forEach(counter => {
-  const updateCount = () => {
-    const target = +counter.getAttribute('data-target');
-    const current = +counter.innerText;
-    const increment = target / 100;
+const startCounter = (counter) => {
+  const target = +counter.getAttribute('data-target');
+  const step = +counter.getAttribute('data-step') || Math.ceil(target / 150);
+  const isPercent = target === 100;
 
+  const updateCount = () => {
+    const current = +counter.innerText;
     if (current < target) {
-      counter.innerText = Math.ceil(current + increment);
-      setTimeout(updateCount, 30);
+      counter.innerText = Math.min(Math.ceil(current + step), target);
+      setTimeout(updateCount, 70);
     } else {
-      counter.innerText = target + (target === 100 ? '%' : '+');
+      counter.innerText = target + (isPercent ? '%' : '+');
     }
   };
 
   updateCount();
-});
+};
+
+// Observe and start counter only when visible
+const counterObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const counter = entry.target;
+      startCounter(counter);
+      observer.unobserve(counter); // Start once
+    }
+  });
+}, { threshold: 0.5 });
+
+counters.forEach(counter => counterObserver.observe(counter));
+
+
+// to animate track records
+
+// Slide-up animation on scroll for .track-header and .counter-box
+const trackElements = document.querySelectorAll('.track-record-section .track-header, .track-record-section .counter-box');
+
+const trackObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate-slide-up');
+    }
+  });
+}, { threshold: 0.3 });
+
+trackElements.forEach(el => trackObserver.observe(el));
+
+
+
 
 // testimonials
 const testimonialSlider = document.getElementById('testimonialSlider');
