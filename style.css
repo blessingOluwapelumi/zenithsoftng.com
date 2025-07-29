@@ -372,6 +372,7 @@ background-color:  #ebebeb;
   left: 0;
   width: 100%;
   height: 100%;
+  background-color: var(--primary-color);
   background-size: cover;
   background-position: center;
   opacity: 0;
@@ -547,7 +548,7 @@ transition: background-color 1s ease, transform 1s ease;
 /* Responsive */
 @media (max-width: 768px) {
   .info-boxes {
-
+display:none;
     top: -30px;
     padding: 10px 20px;
   }
