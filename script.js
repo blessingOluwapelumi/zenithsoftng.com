@@ -34,11 +34,21 @@ navAnchors.forEach(link => {
 let lastScroll = 0;
 const topBar = document.getElementById('topBar');
 
-window.addEventListener('scroll', () => {
+function handleTopBarVisibility() {
   const currentScroll = window.pageYOffset;
-  topBar.style.display = currentScroll > lastScroll && currentScroll > 50 ? 'none' : 'block';
+
+  if (window.innerWidth > 1024) {
+    topBar.style.display = currentScroll > lastScroll && currentScroll > 50 ? 'none' : 'block';
+  } else {
+    topBar.style.display = ''; // Reset to default (CSS handles it)
+  }
+
   lastScroll = currentScroll;
-});
+}
+
+window.addEventListener('scroll', handleTopBarVisibility);
+window.addEventListener('resize', handleTopBarVisibility); // Ensures it reacts on screen resize
+
 
 
 // HERO SECTION
