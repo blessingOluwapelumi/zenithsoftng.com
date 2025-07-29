@@ -41,112 +41,26 @@ window.addEventListener('scroll', () => {
 });
 
 
-
-//HERO SECTION
-// script.js
-const slidesContainer = document.getElementById('slidesContainer');
-let slides = document.querySelectorAll('.slide');
-let currentSlide = 0;
-let intervalTime = 8000;
-let slideWidth = window.innerWidth;
-
-// Clone first slide for seamless looping
-const firstSlideClone = slides[0].cloneNode(true);
-slidesContainer.appendChild(firstSlideClone);
-slides = document.querySelectorAll('.slide');
-
-// Typetext effect
-
-function typeText(el, text, delay = 100) {
-  let i = 0;
-  el.classList.add('typewriter');
-  el.innerHTML = '';
-
-  function typeChar() {
-    if (i < text.length) {
-      el.innerHTML += text.charAt(i);
-      i++;
-      setTimeout(typeChar, delay);
-    } else {
-      // Hide the cursor after typing is complete
-      el.classList.remove('typewriter');
-    }
-  }
-
-  typeChar();
-}
-
-
+// HERO SECTION
+const seamlessSlides = document.querySelectorAll('.seamless-slide');
+let currentIndex = 0;
+const delayBetweenSlides = 10000;
 
 function showSlide(index) {
-  slidesContainer.style.transition = 'transform 1s ease-in-out';
-  slidesContainer.style.transform = `translateX(-${index * slideWidth}px)`;
-
-  slides.forEach(slide => {
-    const text = slide.querySelector('.text-content');
-    if (text) text.classList.remove('show');
+  seamlessSlides.forEach((slide, i) => {
+    slide.classList.remove('active');
+    if (i === index) {
+      slide.classList.add('active');
+    }
   });
-
-  // 💡 If it's the first slide on initial load, show text immediately
-  const currentText = slides[index].querySelector('.text-content');
-  const typewriterEl = currentText.querySelector('.typewriter');
-  const fullText = typewriterEl.getAttribute('data-text');
-
-  if (index === 0 && currentSlide === 0) {
-    currentText.classList.add('show');
-    typeText(typewriterEl, fullText, 80);
-  } else {
-    // Slight delay for other slides
-    setTimeout(() => {
-      currentText.classList.add('show');
-      typeText(typewriterEl, fullText, 80);
-    }, 500); // Adjust this value to match your preferred delay
-  }
 }
-
-
 
 function nextSlide() {
-  const currentText = slides[currentSlide].querySelector('.text-content');
-
-  // Start fade-out before changing slide
-  if (currentText) {
-    currentText.classList.remove('show');
-  }
-
-  // Wait for fade-out to complete before sliding
-  setTimeout(() => {
-    currentSlide++;
-    showSlide(currentSlide);
-
-    if (currentSlide === slides.length - 1) {
-      setTimeout(() => {
-        slidesContainer.style.transition = 'none';
-        slidesContainer.style.transform = `translateX(0px)`;
-        currentSlide = 0;
-
-        slides.forEach(slide => {
-          const text = slide.querySelector('.text-content');
-          if (text) text.classList.remove('show');
-        });
-
-        const firstText = slides[0].querySelector('.text-content');
-        const typewriterEl = firstText.querySelector('.typewriter');
-        const fullText = typewriterEl.getAttribute('data-text');
-        
-        setTimeout(() => {
-          firstText.classList.add('show');
-          typeText(typewriterEl, fullText, 80);
-        }, 1000); //  THIS is the delay before showing the text
-
-      }, intervalTime);
-    }
-  }, 400); // Delay to allow fade-out before sliding
+  currentIndex = (currentIndex + 1) % seamlessSlides.length;
+  showSlide(currentIndex);
 }
 
-// Start
-showSlide(currentSlide);
-setInterval(nextSlide, intervalTime);
+setInterval(nextSlide, delayBetweenSlides);
 
 
 
@@ -480,6 +394,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
   cards.forEach(card => observer.observe(card));
 });
-
 
 
