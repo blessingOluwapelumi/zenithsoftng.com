@@ -451,16 +451,23 @@ background-color:  #ebebeb;
     font-size: 1.6rem;
   }
 
-  .cta-btn {
-    padding: 10px 20px;
-    font-size: 14px;
+  .hero-cta-btn {
+     padding: 10px 10px;
+     font-size: 12px;
   }
 
   .seamless-slide {
     padding-left: 20px;
     padding-right: 20px;
     justify-content: flex-start;
+    position: absolute;
   }
+
+ .seamless-hero {
+
+  height: 60vh;
+ 
+}
 }
 
  
@@ -1056,7 +1063,7 @@ background-color: var(--primary-color);
   }
 
   .carousel-wrapper {
-    padding: 5rem 25px;
+    padding: 7rem 25px 5rem 2px;
   }
 
    .services-section {
@@ -1084,7 +1091,17 @@ background-color: var(--primary-color);
 }
 
 
+.see-more-wrapper{
+  position: relative;
+  margin-top: 8rem;
+}
 
+
+
+.services-dots {
+ 
+  margin-top: 2remx;
+}
 
 
 
@@ -1382,6 +1399,7 @@ background-color: var(--primary-color);
     flex-direction: column;
     align-items: center;
     padding: 40px 15px;
+     margin: 5rem 0;
   }
 
   .partners-left {
@@ -1556,6 +1574,11 @@ background-color: var(--primary-color);
     width: 10px;
     height: 10px;
   }
+
+  .testimonial-dots{
+  margin-top: 70px;
+}
+
 }
 
 
