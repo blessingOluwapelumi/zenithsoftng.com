@@ -304,6 +304,19 @@ function updateActiveDot() {
 
 
 
+// For services to slide in from the bottom
+const serviceElements = document.querySelectorAll('.services-section, .carousel-wrapper');
+
+const serviceObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate-slide-up');
+    }
+  });
+}, { threshold: 0.3 });
+
+serviceElements.forEach(el => serviceObserver.observe(el));
+
 
 
 
