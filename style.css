@@ -181,7 +181,7 @@ background-color:  #ebebeb;
 }
 
 /* CTA Button */
-.cta-btn {
+.cta-btn, .carousel-cta-btn {
    padding: 14px 32px;
   background-color: var(--btn-color);
   color: white;
@@ -194,7 +194,7 @@ background-color:  #ebebeb;
  /* box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);*/
 }
 
-.cta-btn:hover {
+.cta-btn, .carousel-cta-btn:hover {
   background-color: transparent;
   color: var(--btn-color);
   box-shadow: 0 4px 12px rgba(255, 108, 101, 0.3);
