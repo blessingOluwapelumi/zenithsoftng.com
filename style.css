@@ -430,7 +430,7 @@ background-color:  #ebebeb;
 }
 
 .hero-cta-btn:hover {
-  background-color: transparent;
+   background-color: transparent;
   color: var(--main-bg-color);
 
 }
@@ -1717,3 +1717,4 @@ height: 80px;
 
 
 }
+
